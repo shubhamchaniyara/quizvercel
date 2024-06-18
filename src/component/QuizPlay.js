@@ -176,7 +176,7 @@ const QuizPlay = () => {
     if (selectedOption === currentQuestion.correctAnswer) {
       console.log("Correct!");
       const isNameJoined = joinedNicknames.some(nickname => 
-        nickname.trim().toLowerCase() === name
+        nickname.trim() === name
       );
       console.log(targetGamepin);
       console.log(joinID);

@@ -83,7 +83,7 @@ const Home = () => {
   }
 
   const handledeletedata = () =>{
-    navigate("/home");
+    navigate("/");
   }
 
   const handleStartQuiz = async() => {
