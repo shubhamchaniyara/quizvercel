@@ -56,7 +56,7 @@ const QuizPlay = () => {
   useEffect(() => {
     const start = async () => {
       try {
-        const result = await axios.get("http://localhost:8080/getstart");
+        const result = await axios.get("https://railway-dev-production-d537.up.railway.app/getstart");
         const arraySize = result.data.length;
         let check = result.data[arraySize - 1].checkstatus;
         if (check === 'yes') {
@@ -84,7 +84,7 @@ const QuizPlay = () => {
       const scoreData = {};
       for (const userid of joinID) {
         try {
-          const response = await axios.get(`http://localhost:8080/getScore/${userid}`);
+          const response = await axios.get(`https://railway-dev-production-d537.up.railway.app/getScore/${userid}`);
           scoreData[userid] = response.data;
         } catch (error) {
           console.error('Error fetching score for userid:', userid, error);
@@ -102,7 +102,7 @@ const QuizPlay = () => {
   const loadusers = async () => {
    
     try {
-      const result = await axios.get("http://localhost:8080/QuizPlay");
+      const result = await axios.get("https://railway-dev-production-d537.up.railway.app/QuizPlay");
       console.log(result);
       const arraySize = result.data.length;
       let t = result.data[arraySize - 1].gamepin;
@@ -118,7 +118,7 @@ const QuizPlay = () => {
   };
 
   const fetchquestion = async() =>{
-    const result = await axios.get("http://localhost:8080/getquestion");
+    const result = await axios.get("https://railway-dev-production-d537.up.railway.app/getquestion");
       console.log(result);
       const Size = result.data.length;
       
@@ -184,10 +184,10 @@ const QuizPlay = () => {
 
       if (isNameJoined) {
         try {
-          const userResponse = await axios.get(`http://localhost:8080/getUserIdByNickname/${targetGamepin}/${name}`);
+          const userResponse = await axios.get(`https://railway-dev-production-d537.up.railway.app/getUserIdByNickname/${targetGamepin}/${name}`);
           const userId = userResponse.data;
 
-          await axios.post(`http://localhost:8080/updateScore/${userId}`);
+          await axios.post(`https://railway-dev-production-d537.up.railway.app/updateScore/${userId}`);
           console.log('Score updated successfully for user ID:', userId);
         } catch (error) {
           console.error('Error updating score for user ID:', error);

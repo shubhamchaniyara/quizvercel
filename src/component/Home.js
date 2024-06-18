@@ -47,12 +47,12 @@ const Home = () => {
   const loadgamepin = async () => {
 
     if (gamePin != null) {
-      await axios.post("http://localhost:8080/gpin", {
+      await axios.post("https://railway-dev-production-d537.up.railway.app/gpin", {
         "gamepin": gamePin
       });
       console.log("r", gamePin);
       
-    await axios.post("http://localhost:8080/gstart",{  
+    await axios.post("https://railway-dev-production-d537.up.railway.app/gstart",{  
       "checkstatus":"no"
   });
 
@@ -87,7 +87,7 @@ const Home = () => {
   }
 
   const handleStartQuiz = async() => {
-    await axios.post("http://localhost:8080/gstart",{  
+    await axios.post("https://railway-dev-production-d537.up.railway.app/gstart",{  
       "checkstatus":"yes"
   });
   sendQuestionsToBackend();
@@ -142,7 +142,7 @@ const Home = () => {
 
     for (let j = 0; j < 10; j++) {
       try {
-        const response = await axios.post('http://localhost:8080/question', questionsData[j]);
+        const response = await axios.post('https://railway-dev-production-d537.up.railway.app/question', questionsData[j]);
         //console.log('Questions saved successfully:', response);
       } catch (error) {
         console.error('Error saving questions:', error);
