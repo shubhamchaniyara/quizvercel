@@ -21,7 +21,7 @@ function JoinQuiz() {
 //   console.log("gamePin value in JoinQiz",gamePin);
   const fetchpin =async () =>{
 
-    const result=await axios.get("https://railway-dev-production-d537.up.railway.app/getpin");
+    const result=await axios.get("https://railway-dev-production-d537.up.railway.app/game/getpin");
     console.log(result);
     const arraySize = result.data.length;
     let gamepin=result.data[arraySize-1].gamepin;
@@ -41,7 +41,7 @@ function JoinQuiz() {
         setEnteredGamePin('');
         console.log('valid game pin');
     
-        await axios.post("https://railway-dev-production-d537.up.railway.app/tquiz",{  
+        await axios.post("https://railway-dev-production-d537.up.railway.app/quiz/tquiz",{  
           "gamepin":gamePin,
           "nickname":nickname
       });
